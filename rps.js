@@ -1,8 +1,8 @@
 function computerPlay() {
   switch(parseInt(Math.random()*3)) {
-    case 0: return 'Rock'; break;
-    case 1: return 'Paper'; break;
-    case 2: return 'Scissors'; break;
+    case 0: return 'rock'; break;
+    case 1: return 'paper'; break;
+    case 2: return 'scissors'; break;
   }
 }
 
@@ -78,15 +78,21 @@ game();
 
 */
 
-const gamestate = document.createElement('h3');
-const playreport = document.createElement('h3'); 
+const playerreport = document.createElement('p'); 
+const computerreport = document.createElement('p'); 
+const gameresult = document.createElement('p');
 
 const btn1 = document.querySelector('#gb1');
 btn1.addEventListener('click', function (e) {
   const cplay = computerPlay();
   const result = play('rock', cplay);
-  playreport.textContent = "you played rock\ncomputer played " + cplay;
-  score.append(gamestate); 
+  playerreport.textContent = "you played rock";
+  computerreport.textContent = "computer played " + cplay;
+  gameresult.textContent = result;
+  results.append(playerreport); 
+  results.append(computerreport);
+  results.append(gameresult);
+  
 })
 
 const btn2 = document.querySelector('#gb2');

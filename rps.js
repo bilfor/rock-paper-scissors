@@ -6,17 +6,14 @@ function computerPlay() {
   }
 }
 
-function playerPlay() {
-  return prompt("Rock, paper, scissors, SHOOT!");
+function playerPlay(choice) {
+  return choice;
 }
 
 function play(playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();   
   let result = '';
-
-  //console.log(computerSelection);
-  //console.log(playerSelection);
 
   if (playerSelection == 'rock') {
     switch(computerSelection) {
@@ -48,14 +45,15 @@ function play(playerSelection, computerSelection) {
 
   return result;
 } 
-   
+
+/*
 function game() {
   let w = 0;
   let l = 0;
   let d = 0; 
   let round='';
 
-  for(let i=0; i<5; i++) {
+for(let i=0; i<5; i++) {
    round = play(playerPlay(), computerPlay());
    console.log(round);
     switch(round) {
@@ -65,7 +63,7 @@ function game() {
     }
   }
 
-  console.log('SCORE:');
+  console.log('SCORE: ');
   console.log('PLAYER: ' + w);
   console.log('ROBOT: ' + l);
   
@@ -76,5 +74,32 @@ function game() {
     console.log('ROBOT WINS!')
   }
 }
-
 game();
+
+*/
+
+const gamestate = document.createElement('h3');
+const playreport = document.createElement('h3'); 
+
+const btn1 = document.querySelector('#gb1');
+btn1.addEventListener('click', function (e) {
+  const cplay = computerPlay();
+  const result = play('rock', cplay);
+  playreport.textContent = "you played rock\ncomputer played " + cplay;
+  score.append(gamestate); 
+})
+
+const btn2 = document.querySelector('#gb2');
+btn2.addEventListener('click', function (e) {
+  playerPlay('paper');
+  gamestate.textContent = "you played paper";
+  score.append(gamestate); 
+})
+
+const btn3 = document.querySelector('#gb3');
+btn3.addEventListener('click', function (e) {
+  playerPlay('scissors');
+  gamestate.textContent = "you played scissors";
+  score.append(gamestate); 
+  
+})

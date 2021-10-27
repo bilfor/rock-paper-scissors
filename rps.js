@@ -78,34 +78,120 @@ game();
 
 */
 
-const playerreport = document.createElement('p'); 
-const computerreport = document.createElement('p'); 
-const gameresult = document.createElement('p');
+const playerReport = document.createElement('p'); 
+const computerReport = document.createElement('p'); 
+const gameResult = document.createElement('p');
+
+let playerTally = 0;
+let computerTally = 0;
 
 const btn1 = document.querySelector('#gb1');
 btn1.addEventListener('click', function (e) {
   const cplay = computerPlay();
   const result = play('rock', cplay);
-  playerreport.textContent = "you played rock";
-  computerreport.textContent = "computer played " + cplay;
-  gameresult.textContent = result;
-  results.append(playerreport); 
-  results.append(computerreport);
-  results.append(gameresult);
-  
+   
+  if(result == 'w') {
+    playerTally++;
+  }
+  else if(result == 'l') {
+    computerTally++;
+  }
+
+  playerReport.textContent = "you played rock";
+  computerReport.textContent = "computer played " + cplay;
+  gameResult.textContent = result;
+  results.append(playerReport); 
+  results.append(computerReport);
+  results.append(gameResult);
+
+  score.append(playerTally); 
+  score.append(computerTally);
+  score.append(' ');
+
+  if(playerTally == 5) {
+    winner.append('GAME OVER! YOU WIN! ');
+    playerTally = 0;
+    computerTally = 0;
+  }
+
+  else if(computerTally == 5) {
+    winner.append('GAME OVER! ROBOT WINS! ');
+    playerTally = 0;
+    computerTally = 0;
+  }
+
 })
 
 const btn2 = document.querySelector('#gb2');
 btn2.addEventListener('click', function (e) {
-  playerPlay('paper');
-  gamestate.textContent = "you played paper";
-  score.append(gamestate); 
+  const cplay = computerPlay();
+  const result = play('paper', cplay);
+   
+  if(result == 'w') {
+    playerTally++;
+  }
+  else if(result == 'l') {
+    computerTally++;
+  }
+
+  playerReport.textContent = "you played paper";
+  computerReport.textContent = "computer played " + cplay;
+  gameResult.textContent = result;
+  results.append(playerReport); 
+  results.append(computerReport);
+  results.append(gameResult);
+
+  score.append(playerTally); 
+  score.append(computerTally);
+  score.append(' ');
+
+  if(playerTally == 5) {
+    winner.append('GAME OVER! YOU WIN! ');
+    playerTally = 0;
+    computerTally = 0;
+  }
+
+  else if(computerTally == 5) {
+    winner.append('GAME OVER! ROBOT WINS! ');
+    playerTally = 0;
+    computerTally = 0;
+  }
+
 })
+
 
 const btn3 = document.querySelector('#gb3');
 btn3.addEventListener('click', function (e) {
-  playerPlay('scissors');
-  gamestate.textContent = "you played scissors";
-  score.append(gamestate); 
-  
+  const cplay = computerPlay();
+  const result = play('scissors', cplay);
+   
+  if(result == 'w') {
+    playerTally++;
+  }
+  else if(result == 'l') {
+    computerTally++;
+  }
+
+  playerReport.textContent = "you played scissors";
+  computerReport.textContent = "computer played " + cplay;
+  gameResult.textContent = result;
+  results.append(playerReport); 
+  results.append(computerReport);
+  results.append(gameResult);
+
+  score.append(playerTally); 
+  score.append(computerTally);
+  score.append(' ');
+
+  if(playerTally == 5) {
+    winner.append('GAME OVER! YOU WIN! ');
+    playerTally = 0;
+    computerTally = 0;
+  }
+
+  else if(computerTally == 5) {
+    winner.append('GAME OVER! ROBOT WINS! ');
+    playerTally = 0;
+    computerTally = 0;
+  }
 })

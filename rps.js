@@ -72,7 +72,7 @@ function clearNodes() {
 
 function printOut(pplay, cplay, result) {
   playerReport.textContent = "you played " + pplay;
-  computerReport.textContent = "computer played " + cplay;
+  computerReport.textContent = "robot played " + cplay;
   gameResult.textContent = result;
   results.appendChild(playerReport); 
   results.appendChild(computerReport);

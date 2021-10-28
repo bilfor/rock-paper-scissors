@@ -81,6 +81,9 @@ game();
 const playerReport = document.createElement('p'); 
 const computerReport = document.createElement('p'); 
 const gameResult = document.createElement('p');
+const winnerMessage = document.createElement('p');
+const playerTallyMessage = document.createElement('p');
+const computerTallyMessage = document.createElement('p');
 
 let playerTally = 0;
 let computerTally = 0;
@@ -122,6 +125,7 @@ btn1.addEventListener('click', function (e) {
 
 })
 
+
 const btn2 = document.querySelector('#gb2');
 btn2.addEventListener('click', function (e) {
   const cplay = computerPlay();
@@ -137,28 +141,29 @@ btn2.addEventListener('click', function (e) {
   playerReport.textContent = "you played paper";
   computerReport.textContent = "computer played " + cplay;
   gameResult.textContent = result;
-  results.append(playerReport); 
-  results.append(computerReport);
-  results.append(gameResult);
+  results.appendChild(playerReport); 
+  results.appendChild(computerReport);
+  results.appendChild(gameResult);
 
-  score.append(playerTally); 
-  score.append(computerTally);
-  score.append(' ');
+  playerTallyMessage.textContent = playerTally;
+  computerTallyMessage.textContent = computerTally;
+  score.appendChild(playerTallyMessage); 
+  score.appendChild(computerTallyMessage);
 
   if(playerTally == 5) {
-    winner.append('GAME OVER! YOU WIN! ');
+    winnerMessage.textContent = 'GAME OVER! YOU WINS!';
+    winner.appendChild(winnerMessage);
     playerTally = 0;
     computerTally = 0;
   }
 
   else if(computerTally == 5) {
-    winner.append('GAME OVER! ROBOT WINS! ');
+    winnerMessage.textContent = 'GAME OVER! ROBOT WINS!';
+    winner.appendChild(winnerMessage);
     playerTally = 0;
     computerTally = 0;
   }
-
 })
-
 
 const btn3 = document.querySelector('#gb3');
 btn3.addEventListener('click', function (e) {
@@ -184,12 +189,14 @@ btn3.addEventListener('click', function (e) {
   score.append(' ');
 
   if(playerTally == 5) {
+    winner.innerHTML = 'winner:';
     winner.append('GAME OVER! YOU WIN! ');
     playerTally = 0;
     computerTally = 0;
   }
 
   else if(computerTally == 5) {
+    winner.innerHTML = 'winner:';
     winner.append('GAME OVER! ROBOT WINS! ');
     playerTally = 0;
     computerTally = 0;
